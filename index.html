@@ -22,6 +22,66 @@
    <main class="wrapper">
  
     <h2 class="subheader">Place form code below:</h2>
+    <form method="get" action="" class="main-form" >
+      <div>
+        <label for="FirstName">First name</label> <br>
+        <input type="text" name="FirstName" id="FirstName" placeholder="First Name" required autofocus>
+
+      </div>
+
+      <div>
+        <label for="LastName">Last name</label> <br>
+        <input type="text" name="LastName" id="LastName" placeholder="Last Name" required>
+
+      </div>
+
+      <div>
+        <label for="Email">Email</label> <br>
+        <input type="email" name="Email" id="Email" placeholder="Email" required>
+      </div>
+
+      <div> 
+        <input type="submit">
+
+        <div>
+          <label for="Address" City</label> <br>
+          <input type="City" name="City" id="City" placeholder="City" required>
+        </div>
+    
+        <div>
+          <label for="Address" City</label> <br>
+            <select name ="State" id="State" required>
+              <option value="">Please select state</option>
+              <option value="AK">Alaska</option>
+              <option value="CA">California</option>
+              <option value="OR">Oregon</option>
+              <option value="WA">Washington</option>
+            </select>
+        </div>
+          <fieldset>
+            <legend> Would you like to join our mailing list?</legend>
+            <label><input type ="radio" name="JoinMailingList" value="Yes" required> Yes </label>
+            <label><input type ="radio" name="JoinMailingList" value="No"> No </label>
+          </fieldset>
+      </div>
+
+
+    <div>
+    <fieldset>
+      <legend> Interested In?</legend>
+      <label><input type ="checkbox" name="InterestedIn" value="Website" required> Website </label> <br>
+      <label><input type ="checkbox" name="InterestedIn" value="OnlineCalendar" required> Online Calendar </label><br>
+      <label><input type ="checkbox" name="InterestedIn" value="ContactForm" required> Contact Form </label><br>
+      <label><input type ="checkbox" name="InterestedIn" value="Lollipops" required> Complimentary Lollipop </label><br>
+    </fieldset>
+    </div>
+    
+    <div> 
+      <label for="Comments"> Comments </label><br>
+      <textarea name="Comments" id="Comments" placeholder="Comments" rows="4" cols="36">  </textarea>
+    </div>
+
+    </form>
     <p>form goes here</p>
     <h3>Page Origins</h3>
     <p>The HTML/CSS comes from Sara Newman's Web Fundamentals class as taught at Seattle Central. This page provides a basis for students to build a responsive portal page.</p>
