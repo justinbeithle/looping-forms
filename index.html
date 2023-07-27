@@ -10,19 +10,32 @@
     <link rel="stylesheet" href="css/forms.css">
 </head>
 
+<style>
+    p{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50em;
+    text-align: center;
+    font-weight: bolder;
+    }
+
+
+</style>
+
 <body>
     <header>
         <h1 class="page-header">Looping Forms</h1>
         <nav class="topnav" id="myTopnav">
             <a href="index.html" class="active">Home</a>
             <a href="#">Link</a>
-            <a href="#">Link</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
         </nav>
     </header>
 
     <main class="wrapper">
+<p>This page demonstrates data processing of query string data using client side JavaScript.
 
+ Upon submission, the shipping info is displayed and title case is applied to the Shipping Info.</p>
         <h2 class="subheader">Shipping Info</h2>
         <div id="output">
             <form method="get" action="" class="main-form">
@@ -81,22 +94,55 @@
 
     <script src="js/main.js"></script>
     <script>
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
+         function titleCase(str) {
+    str = str.toLowerCase().split(' ');
+    for (var i = 0; i < str.length; i++) {
+      str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+    }
+    return str.join(' ');
+  }
 
-        if (queryString.length > 0) { //data submitted 
-            let myOutput = `<div id="container"`;
 
-            urlParams.forEach(function (value, key) {
-                key = key.split("_").join(" ");
-                myOutput += `<p>${key}: ${value}</p>`;
-            });
+    const queryString = window.location.search;
 
-            myOutput += `<p><a href="index.html">CLEAR</a></p>`;
-            myOutput += `</div>`;
-            document.querySelector("#output").innerHTML = myOutput;
+
+    const urlParams = new URLSearchParams(queryString);
+
+
+   
+
+
+    if(queryString.length > 0){//form submitted!
+      let myOutput = `<div id="container">`;//will store data for display
+     
+      urlParams.forEach(function(value,key){
+        //console.log(value);
+
+
+        key = key.split("_").join(" ");
+        //title case first, last, address, city only
+        switch(key){
+          case "First Name":
+          case "Last Name":
+          case "Address":
+          case "City":
+            value = titleCase(value);
+          break;
         }
+
+
+        myOutput += `<p>${key}: ${value}</p>`;//this is how we loop through 
+      });
+
+
+       myOutput += `<p><a href="index.html">CLEAR</a></p>`;
+       myOutput += `</div>`;
+   
+       document.querySelector("#output").innerHTML = myOutput;
+           
+       }
+
     </script>
 </body>
 
-</html>
+</html> 
